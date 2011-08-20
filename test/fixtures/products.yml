@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  decsription: MyText
+  price: 9.99
+  size: 1
+  quantity: 1
+
+two:
+  title: MyString
+  decsription: MyText
+  price: 9.99
+  size: 1
+  quantity: 1
