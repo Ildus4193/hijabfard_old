@@ -1,4 +1,9 @@
 Hijabfard::Application.routes.draw do
+  
+  #match "sign_out" => "devise/sessions#destroy", :as => "destroy_user_session"
+  devise_for :users
+  resources :pages
+  root :to => "pages#home"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

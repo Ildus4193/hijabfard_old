@@ -1,0 +1,19 @@
+<h1>Home</h1>
+ <menu>
+  <ul>
+      <% if user_signed_in? %>
+     
+        <li><%= link_to 'Мой профиль' %></li>
+
+  
+        <li><%#= link_to 'Покупатели',   orders_path   %></li>
+        <li><%#= link_to 'Пользователи',   users_path   %></li>
+     
+        <li><%#= link_to 'Продукты', products_path %></li>
+   
+        <li><%= link_to "Выйти", destroy_user_session_path  %></li>
+      <% else%>
+        <li><%= link_to "Вход", new_user_session_path %></li>
+      <% end %>
+    </ul>
+  </menu>
