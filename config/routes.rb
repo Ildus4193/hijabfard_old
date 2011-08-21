@@ -4,8 +4,6 @@ Hijabfard::Application.routes.draw do
   #devise_for :users 
   devise_for :users #, :controllers => {:sessions => "sessions"}
   devise_scope :user do 
-  #  match "" => "devise/sessions#new", :as => "new_user_session"
-    #root :to => "devise/sessions#new"
     match "users/sign_up" => "devise/registrations#new", :as => "sign_up"
     get "users/password/new" => "devise/passwords#new", :as => "recover_password", :method => :get
   end

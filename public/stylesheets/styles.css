@@ -436,10 +436,13 @@ li#contacts a:hover, li#contacts a:active{
 
 #content {
 	position: relative;	
-	margin: 0 auto;
+	margin: 0 auto 20px;
 	top: 10px;
-	width: 780px;
-	height: 590px;
+	width: 750px;
+        max-height: 815px;
+        overflow: hidden;
+        padding: 10px 20px 0;
+	/*height: 590px;*/
 
 	
 }
