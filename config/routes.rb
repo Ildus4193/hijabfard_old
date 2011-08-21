@@ -11,6 +11,7 @@ Hijabfard::Application.routes.draw do
   devise_for :users, :controllers => { :registrations => "registrations" } do
     match "profile/edit" => "registrations#edit", :as => "edit_member_registration"
   end
+  match "/pages/:id/edit" => "pages#edit", :as => "pages_edit"
   resources :pages
   resources :products
   root :to => "pages#home"
