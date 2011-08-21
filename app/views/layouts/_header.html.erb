@@ -1,37 +1,47 @@
-
-      <% if user_signed_in? %>
-
-        <li><%= link_to "Выйти", destroy_user_session_path  %></li>
-      <% else%>
-        <li><%= link_to "Вход", new_user_session_path %></li>
-      <% end %>
-
 <div id="header">
-	<div id="header_top">
-    <img style=" position: relative; top: 15px; left: 20px;" src="img/phone_pic.png" alt="Phone" />
+  <div id="header_top">
+    <img style=" position: relative; top: 15px; left: 20px;" <%= image_tag("img/phone_pic.png", :alt => "Phone") %>
     <span style=" position: relative; top: 13px; left: 25px; font: 18px 'Myriad Pro', Verdana, Geneva, sans-serif; color: #fff;">8 917-22-56-187</span>
-    <span style=" position: relative; top: 10px; left: 300px; font: 14px 'Myriad Pro', Verdana, Geneva, sans-serif; color: #cccccc; text-decoration:underline;">Регестрация</span>
-    <span style=" position: relative; top: 10px; left: 320px; font: 14px 'Myriad Pro', Verdana, Geneva, sans-serif; color: #cccccc;">
-    <label for="user_name">Логин:</label>
-    <input id="user_name" type="text" value="" tabindex="1" size="12" name="user[name]" />
-    </span>
-    <span style=" position: relative; top: 10px; left: 325px; font: 14px 'Myriad Pro', Verdana, Geneva, sans-serif; color: #cccccc;">
-    <label for="user_passw">Пароль:</label>
-    <input id="user_passw" type="text" value="" tabindex="1" size="12" name="user[passw]" />
-    </span>
-     <span style=" position: relative; top: 10px; left: 327px; ">
-    <input id="sign_in" type="submit" value="" />
-    </span>
-    <span style=" position: relative; top: 10px; left: 330px; font: 14px 'Myriad Pro', Verdana, Geneva, sans-serif; color: #cccccc;">Забыли пароль?</span>
-    </div>
-    <img style=" position: relative; top: 20px; left: 20px;" src="img/logog_header.png" alt="Logo" />
+           
+    <% if user_signed_in? %>
+    <span style=" position: relative; top: 10px; left: 715px; ">
+      <%= link_to "Мой профиль", edit_user_registration_path, :style => "font: 14px 'Myriad Pro', Verdana, Geneva, sans-serif; color: #cccccc;"  %>
+      </span>
+      <span style=" position: relative; top: 10px; left: 720px; ">
+      <%= link_to "Выйти", destroy_user_session_path, :method => :delete, :style => "font: 14px 'Myriad Pro', Verdana, Geneva, sans-serif; color: #cccccc;"  %>
+      </span>
+    <% else %>
+    
+      <%= form_tag(new_user_session_path, :id => "user_new") do %>
+        <span style=" position: relative; top: 10px; left: 240px; ">    
+          <%= link_to "Регестрация", sign_up_path, :style => "font: 14px 'Myriad Pro', Verdana, Geneva, sans-serif; color: #cccccc; text-decoration:underline;" %>
+        </span>
+        <span style=" position: relative; top: 10px; left: 250px; font: 14px 'Myriad Pro', Verdana, Geneva, sans-serif; color: #cccccc;">
+          <%= label(:login, "Логин") %>
+          <%= text_field_tag 'user[login]', '', :size => 12 %>      
+        </span>
+        <span style=" position: relative; top: 10px; left: 255px; font: 14px 'Myriad Pro', Verdana, Geneva, sans-serif; color: #cccccc;">
+          <%= label(:password, "Пароль") %>
+          <%= password_field_tag 'user[password]', '', :size => 12 %>
+        </span> 
+        <span style=" position: relative; top: 7px; left: 255px; ">  
+          <%= submit_tag "", :id => "sign_in_submit" %>
+        </span>
+      <% end %>
+    
+      <span style=" position: relative; top: 10px; left: 750px; ">
+        <%= link_to "Забыли пароль?", recover_password_path, :style => "font: 14px 'Myriad Pro', Verdana, Geneva, sans-serif; color: #cccccc;" %>
+      </span>
+    <% end %>
+  </div>
+    <%= image_tag("img/logog_header.png", :alt => "Logo", :style => " position: relative; top: 20px; left: 20px;")  %>
     <div id="search">
     <p style=" margin-left: 3px; font: 16px 'Myriad Pro', Verdana, Geneva, sans-serif; color: #8e3085;"><b>Я ищу.</b></p>
     <input id="searchfield" type="text" onblur="clearText(this)" onfocus="clearText(this)" value="" name="tSer" />
-<input id="search_btn_header" type="submit" value="" name="cSer"  />
+    <input id="search_btn_header" type="submit" value="" name="cSer"  />
     </div>
     <div id="cart" style=" position: absolute; float: right; top: 70px; right: 45px;">
-    <img  src="img/cart.png" alt="Cart" />
+    <%= image_tag("img/cart.png", :alt => "Cart") %>
     <p style=" position: relative; top: 10px; left: 5px; font: 14px 'Myriad Pro', Verdana, Geneva, sans-serif; color: #660066; text-decoration:underline;">Корзина (1)</p>
     </div>
 </div>
